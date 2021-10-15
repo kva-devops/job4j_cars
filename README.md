@@ -1,14 +1,14 @@
 # Приложение Cars
 [![Build Status](https://app.travis-ci.com/kva-devops/job4j_cars.svg?branch=master)](https://app.travis-ci.com/kva-devops/job4j_cars)
 
-#О проекте.
+## О проекте.
 Веб приложение для размещения объявлений о продаже автомобилей.
 Позволяет просматривать и добавлять объявления. 
 
-#Сборка.
+## Сборка.
 JDK14, Maven, PostgresSQL, Tomcat
 
-#Как пользоваться.
+## Как пользоваться.
 На главной странице приложения доступен список всех объявлений.
 ![main](images/Selection_098.png)
 
@@ -35,7 +35,7 @@ JDK14, Maven, PostgresSQL, Tomcat
 ![afterAll1](images/Selection_106.png)
 ![afterAll2](images/Selection_107.png)
 
-#Контакты.
+## Контакты.
 Кутявин Владимир
 
 skype: tribuna87
