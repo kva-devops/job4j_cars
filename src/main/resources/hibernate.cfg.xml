@@ -14,5 +14,10 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.jdbc.time_zone">Europe/Samara</property>
 
+        <mapping class="ru.job4j.model.Item" />
+        <mapping class="ru.job4j.model.User" />
+        <mapping class="ru.job4j.model.Body" />
+        <mapping class="ru.job4j.model.Brand" />
+
     </session-factory>
 </hibernate-configuration>
