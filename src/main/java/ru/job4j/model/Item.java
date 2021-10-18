@@ -1,6 +1,7 @@
 package ru.job4j.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -26,6 +27,11 @@ public class Item {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
+
+    private boolean photo;
+
     public Item() {
     }
 
@@ -33,6 +39,8 @@ public class Item {
         this.description = description;
         this.sold = sold;
         this.user = user;
+        this.created = new Date(System.currentTimeMillis());
+        this.photo = false;
     }
 
     public int getId() {
@@ -83,6 +91,22 @@ public class Item {
         this.user = user;
     }
 
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public boolean isPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(boolean photo) {
+        this.photo = photo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -97,6 +121,6 @@ public class Item {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, sold, brand, body, user);
+        return Objects.hash(id, description, sold, brand, body, user, created, photo);
     }
 }

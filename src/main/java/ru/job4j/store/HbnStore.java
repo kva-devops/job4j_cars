@@ -123,4 +123,28 @@ public class HbnStore implements Store, AutoCloseable {
             return true;
         });
     }
+
+    @Override
+    public List<Item> findItemsByLastDay() {
+        return this.tx(session -> session.createQuery("from Item where day(current_timestamp - created) <= 1").list());
+    }
+
+    @Override
+    public List<Item> findItemsWithPhoto() {
+        return this.tx(session -> session.createQuery("from Item where photo = true").list());
+    }
+
+    @Override
+    public List<Item> findItemsByBrand(int brandId) {
+        return this.tx(session -> session.createQuery("from Item i where i.brand.id = :id")
+                .setParameter("id", brandId).list());
+    }
+
+    @Override
+    public void updatePhotoStatus(int userId, int itemId) {
+        this.tx(session -> session.createQuery("update Item i set i.photo = true where i.user.id = :uId and i.id = :iId")
+                .setParameter("uId", userId)
+                .setParameter("iId", itemId)
+                .executeUpdate());
+    }
 }

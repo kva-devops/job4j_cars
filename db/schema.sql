@@ -18,7 +18,9 @@ create table items (
     sold boolean,
     brand_id int references brands(id),
     body_id int references bodies(id),
-    user_id int references users(id)
+    user_id int references users(id),
+    created TIMESTAMP,
+    photo boolean
 );
 create table users_items (
     user_id int references users(id),

@@ -23,4 +23,12 @@ public interface Store {
     List<Item> findItemsForUser(int id);
 
     void deleteItem(Integer id);
+
+    List<Item> findItemsByLastDay();
+
+    List<Item> findItemsWithPhoto();
+
+    List<Item> findItemsByBrand(int brandId);
+
+    void updatePhotoStatus(int userId, int itemId);
 }

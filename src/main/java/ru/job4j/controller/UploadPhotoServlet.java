@@ -4,6 +4,8 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import ru.job4j.model.Item;
+import ru.job4j.store.HbnStore;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -38,6 +40,9 @@ public class UploadPhotoServlet extends HttpServlet {
                     }
                 }
             }
+            HbnStore.instOf().updatePhotoStatus(
+                    Character.getNumericValue(req.getParameter("name").charAt(0)),
+                    Character.getNumericValue(req.getParameter("name").charAt(1)));
         } catch (FileUploadException e) {
             e.printStackTrace();
         }
