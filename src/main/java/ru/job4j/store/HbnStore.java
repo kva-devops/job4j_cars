@@ -135,9 +135,9 @@ public class HbnStore implements Store, AutoCloseable {
     }
 
     @Override
-    public List<Item> findItemsByBrand(int brandId) {
-        return this.tx(session -> session.createQuery("from Item i where i.brand.id = :id")
-                .setParameter("id", brandId).list());
+    public List<Item> findItemsByBrand(String brandName) {
+        return this.tx(session -> session.createQuery("from Item i where i.brand.name = :brandName")
+                .setParameter("brandName", brandName).list());
     }
 
     @Override

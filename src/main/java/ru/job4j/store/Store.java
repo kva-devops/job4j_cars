@@ -28,7 +28,7 @@ public interface Store {
 
     List<Item> findItemsWithPhoto();
 
-    List<Item> findItemsByBrand(int brandId);
+    List<Item> findItemsByBrand(String brandName);
 
     void updatePhotoStatus(int userId, int itemId);
 }
