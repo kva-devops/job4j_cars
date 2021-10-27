@@ -21,6 +21,5 @@
         <mapping class="ru.job4j.model.Body" />
         <mapping class="ru.job4j.model.Brand" />
         <mapping class="ru.job4j.model.CategoryCar" />
-
     </session-factory>
 </hibernate-configuration>
