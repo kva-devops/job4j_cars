@@ -157,10 +157,26 @@ public class HbnStore implements Store, AutoCloseable {
     }
 
     @Override
-    public void checkSaleItem(int itemId) {
-        this.tx(session -> session.createQuery("update Item i set i.sold = true where i.id = :iId")
+    public void updateSaleStatus(int userId, int itemId) {
+        this.tx(session -> session.createQuery("update Item i set i.sold = true where i.user.id = :uId and i.id = :iId")
+                .setParameter("uId", userId)
                 .setParameter("iId", itemId)
                 .executeUpdate()
         );
+    }
+
+    @Override
+    public void saveBody(Body body) {
+        this.tx(session -> session.save(body));
+    }
+
+    @Override
+    public void saveBrand(Brand brand) {
+        this.tx(session -> session.save(brand));
+    }
+
+    @Override
+    public void saveCategory(CategoryCar category) {
+        this.tx(session -> session.save(category));
     }
 }

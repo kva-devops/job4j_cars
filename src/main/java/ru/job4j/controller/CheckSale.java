@@ -11,7 +11,7 @@ public class CheckSale extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        HbnStore.instOf().checkSaleItem(Integer.valueOf(req.getParameter("id")));
+        HbnStore.instOf().updateSaleStatus(Integer.parseInt(req.getParameter("user")), Integer.parseInt(req.getParameter("id")));
         resp.sendRedirect(req.getContextPath() + "/cabinet");
     }
 }

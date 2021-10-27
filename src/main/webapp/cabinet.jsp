@@ -61,7 +61,7 @@
                 <i>Автор: </i><c:out value="${item.user.name}" /><br>
                 <a class="link" href="<c:url value='/uploadPhoto.jsp?photoName=${item.user.id}${item.id}'/>">Загрузить фото</a><br>
                 <a class="link" href="<c:url value='/deleteItem?id=${item.id}'/>">Удалить объявление</a><br>
-                <a class="link" href="<c:url value='/checkSale?id=${item.id}'/>">Отметить как "Продано"</a>
+                <a class="link" href="<c:url value='/checkSale?id=${item.id}&user=${item.user.id}'/>">Отметить как "Продано"</a>
             </li>
         </c:forEach>
     </ul>

@@ -31,5 +31,11 @@ public interface Store {
 
     void updatePhotoStatus(int userId, int itemId);
 
-    void checkSaleItem(int userId);
+    void updateSaleStatus(int userId, int itemId);
+
+    void saveBody(Body body);
+
+    void saveBrand(Brand brand);
+
+    void saveCategory(CategoryCar category);
 }

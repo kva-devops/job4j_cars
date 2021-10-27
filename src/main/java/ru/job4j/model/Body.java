@@ -15,6 +15,15 @@ public class Body {
     public Body() {
     }
 
+    public Body(String name) {
+        this.name = name;
+    }
+
+    public Body(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }

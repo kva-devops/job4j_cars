@@ -16,6 +16,16 @@ public class CategoryCar {
     public CategoryCar() {
     }
 
+    public CategoryCar(String name) {
+        this.name = name;
+    }
+
+    public CategoryCar(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+
     public int getId() {
         return id;
     }
