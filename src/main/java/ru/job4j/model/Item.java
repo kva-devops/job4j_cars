@@ -16,6 +16,10 @@ public class Item {
     private boolean sold;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryCar category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id", nullable = false)
     private Brand brand;
 
@@ -65,6 +69,14 @@ public class Item {
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    public CategoryCar getCategory() {
+        return category;
+    }
+
+    public void setCategory(CategoryCar category) {
+        this.category = category;
     }
 
     public Brand getBrand() {
@@ -121,6 +133,6 @@ public class Item {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, sold, brand, body, user, created, photo);
+        return Objects.hash(id, description, sold, category, brand, body, user, created, photo);
     }
 }

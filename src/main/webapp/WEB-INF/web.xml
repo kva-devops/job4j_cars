@@ -41,6 +41,10 @@
     <servlet-name>DeleteItemServlet</servlet-name>
     <servlet-class>ru.job4j.controller.DeleteItemServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>CheckSale</servlet-name>
+    <servlet-class>ru.job4j.controller.CheckSale</servlet-class>
+  </servlet>
   
   <servlet-mapping>
     <servlet-name>AllServlet</servlet-name>
@@ -77,6 +81,10 @@
   <servlet-mapping>
     <servlet-name>DeleteItemServlet</servlet-name>
     <url-pattern>/deleteItem</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CheckSale</servlet-name>
+    <url-pattern>/checkSale</url-pattern>
   </servlet-mapping>
 
 </web-app>

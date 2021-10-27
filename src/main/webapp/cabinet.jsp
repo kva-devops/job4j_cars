@@ -49,6 +49,7 @@
         <c:forEach items="${items}" var="item">
             <li class="list-group-item">
                 <img src="<c:url value='/downloadPhoto?name=${item.user.id}${item.id}'/>" width="100px" height="100px"/><br>
+                <i>Категория: </i><c:out value="${item.category.name}" /><br>
                 <i>Описание: </i><c:out value="${item.description}" /><br>
                 <i>Статус: </i>
                 <c:choose>
@@ -59,7 +60,8 @@
                 <i>Кузов: </i><c:out value="${item.body.name}" /><br>
                 <i>Автор: </i><c:out value="${item.user.name}" /><br>
                 <a class="link" href="<c:url value='/uploadPhoto.jsp?photoName=${item.user.id}${item.id}'/>">Загрузить фото</a><br>
-                <a class="link" href="<c:url value='/deleteItem?id=${item.id}'/>">Удалить объявление</a>
+                <a class="link" href="<c:url value='/deleteItem?id=${item.id}'/>">Удалить объявление</a><br>
+                <a class="link" href="<c:url value='/checkSale?id=${item.id}'/>">Отметить как "Продано"</a>
             </li>
         </c:forEach>
     </ul>

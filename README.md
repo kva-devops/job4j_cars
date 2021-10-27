@@ -10,7 +10,7 @@ JDK14, Maven, PostgresSQL, Tomcat
 
 ## Как пользоваться.
 На главной странице приложения доступен список всех объявлений.
-![main](images/Selection_098.png)
+![main](images/Selection_115.png)
 
 Чтобы иметь возможность размещать объявления, необходимо авторизоваться
 в системе, либо зарегистрироваться.
@@ -19,21 +19,21 @@ JDK14, Maven, PostgresSQL, Tomcat
 
 После авторизации происходит перенаправление на главную страницу, из которой
 становится доступна ссылка на личный кабинет.
-![mainAuth](images/Selection_108.png)
+![mainAuth](images/Selection_110.png)
 ![cabinet](images/Selection_101.png)
 
 Для добавления объявления нужно перейти по ссылке "Добавить объявление" и
 заполнить все необходимые поля.
-![addAds](images/Selection_102.png)
+![addAds](images/Selection_111.png)
 
 Фото загружается отдельно после создания объявления.
-![upPhoto1](images/Selection_104.png)
+![upPhoto1](images/Selection_112.png)
 ![upPhoto2](images/Selection_105.png)
 
 После добавления объявления оно становится доступным для редактирования и удаления в личном кабинете 
 и на главной странице. 
-![afterAll1](images/Selection_106.png)
-![afterAll2](images/Selection_107.png)
+![afterAll1](images/Selection_113.png)
+![afterAll2](images/Selection_114.png)
 
 ## Контакты.
 Кутявин Владимир

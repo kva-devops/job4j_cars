@@ -58,6 +58,16 @@
                     <textarea class="form-control" name="descriptionItem" rows="5" placeholder="Введите описание"></textarea>
                 </div>
                 <div class="form-group col-3 p-1">
+                    <label>Категория</label>
+                    <select class="form-select" name="categories" size="5" id="categoryId">
+                        <c:forEach items="${categories}" var="categoryCar" >
+                            <option value='<c:out value="${categoryCar.id}"/>'>
+                                <c:out value="${categoryCar.name}"/>
+                            </option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group col-3 p-1">
                     <label>Марка</label>
                     <select class="form-select" name="brands" size="5" id="brandId">
                         <c:forEach items="${brands}" var="brand" >

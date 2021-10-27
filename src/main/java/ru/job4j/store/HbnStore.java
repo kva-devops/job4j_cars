@@ -6,10 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import ru.job4j.model.Body;
-import ru.job4j.model.Brand;
-import ru.job4j.model.Item;
-import ru.job4j.model.User;
+import ru.job4j.model.*;
 
 import java.util.List;
 import java.util.function.Function;
@@ -56,6 +53,7 @@ public class HbnStore implements Store, AutoCloseable {
                 session -> session.createQuery(
                         "select i from ru.job4j.model.Item i "
                                 + "left join fetch i.user "
+                                + "left join fetch i.category "
                                 + "left join fetch i.body "
                                 + "left join fetch i.brand")
                         .list()
@@ -76,6 +74,13 @@ public class HbnStore implements Store, AutoCloseable {
     }
 
     @Override
+    public List<CategoryCar> findAllCategories() {
+        return this.tx(
+                session -> session.createQuery("from ru.job4j.model.CategoryCar").list()
+        );
+    }
+
+    @Override
     public List<Body> findAllBodies() {
         return this.tx(
                 session -> session.createQuery("from ru.job4j.model.Body").list()
@@ -90,10 +95,12 @@ public class HbnStore implements Store, AutoCloseable {
     }
 
     @Override
-    public void saveItem(Item item, String[] bodyId, String[] brandId) {
+    public void saveItem(Item item, String[] categoryId, String[] bodyId, String[] brandId) {
         this.tx(session -> {
+            CategoryCar category = session.find(CategoryCar.class, Integer.parseInt(categoryId[0]));
             Body body = session.find(Body.class, Integer.parseInt(bodyId[0]));
             Brand brand = session.find(Brand.class, Integer.parseInt(brandId[0]));
+            item.setCategory(category);
             item.setBody(body);
             item.setBrand(brand);
             session.save(item);
@@ -107,6 +114,7 @@ public class HbnStore implements Store, AutoCloseable {
                 session -> session.createQuery(
                         "select i from ru.job4j.model.Item i "
                                 + "left join fetch i.user "
+                                + "left join fetch i.category "
                                 + "left join fetch i.body "
                                 + "left join fetch i.brand "
                                 + "where i.user.id = :id")
@@ -146,5 +154,13 @@ public class HbnStore implements Store, AutoCloseable {
                 .setParameter("uId", userId)
                 .setParameter("iId", itemId)
                 .executeUpdate());
+    }
+
+    @Override
+    public void checkSaleItem(int itemId) {
+        this.tx(session -> session.createQuery("update Item i set i.sold = true where i.id = :iId")
+                .setParameter("iId", itemId)
+                .executeUpdate()
+        );
     }
 }

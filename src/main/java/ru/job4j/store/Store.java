@@ -1,9 +1,6 @@
 package ru.job4j.store;
 
-import ru.job4j.model.Body;
-import ru.job4j.model.Brand;
-import ru.job4j.model.Item;
-import ru.job4j.model.User;
+import ru.job4j.model.*;
 
 import java.util.List;
 
@@ -14,11 +11,13 @@ public interface Store {
 
     void saveUser(User user);
 
+    List<CategoryCar> findAllCategories();
+
     List<Body> findAllBodies();
 
     List<Brand> findAllBrands();
 
-    void saveItem(Item item, String[] bodyId, String[] brandId);
+    void saveItem(Item item, String[] categoryId, String[] bodyId, String[] brandId);
 
     List<Item> findItemsForUser(int id);
 
@@ -31,4 +30,6 @@ public interface Store {
     List<Item> findItemsByBrand(String brandName);
 
     void updatePhotoStatus(int userId, int itemId);
+
+    void checkSaleItem(int userId);
 }

@@ -46,6 +46,7 @@
         <c:forEach items="${items}" var="item">
             <li class="list-group-item">
                 <img src="<c:url value='/downloadPhoto?name=${item.user.id}${item.id}'/>" width="100px" height="100px"/><br>
+                <i>Категория: </i><c:out value="${item.category.name}" /><br>
                 <i>Описание: </i><c:out value="${item.description}" /><br>
                 <i>Статус: </i>
                     <c:choose>

@@ -1,9 +1,6 @@
 package ru.job4j.controller;
 
-import ru.job4j.model.Body;
-import ru.job4j.model.Brand;
-import ru.job4j.model.Item;
-import ru.job4j.model.User;
+import ru.job4j.model.*;
 import ru.job4j.store.HbnStore;
 
 import javax.servlet.ServletException;
@@ -18,6 +15,7 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         req.setCharacterEncoding("UTF-8");
+        String[] categoryId = req.getParameterValues("categories");
         String[] bodyId = req.getParameterValues("bodies");
         String[] brandId = req.getParameterValues("brands");
         User user = (User) req.getSession().getAttribute("user");
@@ -26,7 +24,7 @@ public class AddServlet extends HttpServlet {
                         req.getParameter("descriptionItem"),
                         false,
                         user
-                ), bodyId, brandId
+                ), categoryId, bodyId, brandId
         );
         resp.sendRedirect(req.getContextPath() + "/cabinet");
     }
@@ -34,8 +32,10 @@ public class AddServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");
+        List<CategoryCar> categoryCarList = HbnStore.instOf().findAllCategories();
         List<Body> bodyList = HbnStore.instOf().findAllBodies();
         List<Brand> brandList = HbnStore.instOf().findAllBrands();
+        req.setAttribute("categories", categoryCarList);
         req.setAttribute("bodies", bodyList);
         req.setAttribute("brands", brandList);
         req.setAttribute("user", user);
