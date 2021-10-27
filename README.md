@@ -1,5 +1,6 @@
 # Приложение Cars
 [![Build Status](https://app.travis-ci.com/kva-devops/job4j_cars.svg?branch=master)](https://app.travis-ci.com/kva-devops/job4j_cars)
+[![codecov](https://codecov.io/gh/kva-devops/job4j_cars/branch/master/graph/badge.svg?token=YBZ9UHKVSB)](https://codecov.io/gh/kva-devops/job4j_cars)
 
 ## О проекте.
 Веб приложение для размещения объявлений о продаже автомобилей.
