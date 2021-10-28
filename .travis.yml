@@ -10,7 +10,6 @@ sudo: false
 env:
 
   global:
-
     - CODECOV_TOKEN="3b2f255f-9aeb-4545-b6e4-adde6588df24"
 
 after_success:
