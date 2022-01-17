@@ -3,11 +3,19 @@
 [![codecov](https://codecov.io/gh/kva-devops/job4j_cars/branch/master/graph/badge.svg?token=YBZ9UHKVSB)](https://codecov.io/gh/kva-devops/job4j_cars)
 
 ## О проекте.
+#### Описание
 Веб приложение для размещения объявлений о продаже автомобилей.
-Позволяет просматривать и добавлять объявления. 
+Позволяет просматривать и добавлять объявления.
+
+#### Технологии
+>JDK14, Maven, PostgreSQL, Java Servlet, JSP, JSTL, Hibernate, Junit
 
 ## Сборка.
-JDK14, Maven, PostgresSQL, Tomcat
+0. Скачать файлы репозитория
+1. Создать базу данных в соответствии с настройками в файле *src/main/resources/hibernate.cfg.xml*
+1. Произвести сборку проекта: `mvn clean install`
+2. Скопировать полученный файл "job4j_cars-1.0.war" из папки target в папку вашего сервера
+3. Приложение будет доступно по адресу: http://localhost:8080
 
 ## Как пользоваться.
 На главной странице приложения доступен список всех объявлений.
